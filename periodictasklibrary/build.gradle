@@ -1,6 +1,20 @@
 plugins {
     alias(libs.plugins.android.library)
+    id 'maven-publish'
 }
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                groupId = 'com.github.jawa0919'
+                artifactId = 'periodictask'
+                version = '1.0.0'
+            }
+        }
+    }
+}
+
 
 android {
     namespace 'top.meu6jia.periodictasklibrary'
@@ -35,3 +49,4 @@ dependencies {
 
     implementation "androidx.work:work-runtime:2.11.1"
 }
+
